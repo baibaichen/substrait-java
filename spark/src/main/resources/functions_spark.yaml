@@ -1,0 +1,25 @@
+%YAML 1.2
+---
+scalar_functions:
+  -
+    name: alias
+    description: Used to assign a new name to a computation.
+    impls:
+      - args:
+          - value: i8
+        return: i8
+      - args:
+          - value: i16
+        return: i16
+      - args:
+          - value: i32
+        return: i32
+      - args:
+          - value: i64
+        return: i64
+      - args:
+          - value: fp32
+        return: fp32
+      - args:
+          - value: fp64
+        return: fp64

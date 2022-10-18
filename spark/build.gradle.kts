@@ -23,9 +23,9 @@ dependencies {
   implementation("org.apache.spark:spark-sql_2.12:3.3.0")
   testImplementation("org.apache.spark:spark-hive_2.12:3.3.0")
 
-  //    testImplementation("org.apache.spark:spark-sql_2.12:3.3.0:tests")
-  //    testImplementation("org.apache.spark:spark-core_2.12:3.3.0:tests")
-  //    testImplementation("org.apache.spark:spark-catalyst_2.12:3.3.0:tests")
+  testImplementation("org.apache.spark:spark-sql_2.12:3.3.0:tests")
+  testImplementation("org.apache.spark:spark-core_2.12:3.3.0:tests")
+  testImplementation("org.apache.spark:spark-catalyst_2.12:3.3.0:tests")
 
   // iceberg-spark
   testImplementation("org.testcontainers:testcontainers:1.17.3")

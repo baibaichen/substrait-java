@@ -4,6 +4,7 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan;
+import org.apache.spark.sql.execution.SparkPlan;
 import org.junit.jupiter.api.AfterAll;
 
 public class BaseSparkSqlPlanTest {
@@ -24,5 +25,9 @@ public class BaseSparkSqlPlanTest {
 
   protected static LogicalPlan plan(String sql) {
     return sql(sql).queryExecution().optimizedPlan();
+  }
+
+  protected static SparkPlan PhysicalPlan(String sql) {
+    return sql(sql).queryExecution().executedPlan();
   }
 }
