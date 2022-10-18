@@ -164,7 +164,12 @@ public class RelCopyOnWriteVisitor extends AbstractRelVisitor<Optional<Rel>, Run
             .build());
   }
 
-  private Optional<Expression> visitExpression(Expression expression) {
+    @Override
+    public Optional<Rel> visit(LocalFiles localFiles) throws RuntimeException {
+        throw new UnsupportedOperationException("LocalFiles");
+    }
+
+    private Optional<Expression> visitExpression(Expression expression) {
     ExpressionVisitor<Optional<Expression>, RuntimeException> visitor =
         new AbstractExpressionVisitor<>() {
           @Override

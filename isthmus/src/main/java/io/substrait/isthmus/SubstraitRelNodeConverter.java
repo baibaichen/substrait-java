@@ -13,6 +13,7 @@ import io.substrait.relation.Cross;
 import io.substrait.relation.Fetch;
 import io.substrait.relation.Filter;
 import io.substrait.relation.Join;
+import io.substrait.relation.LocalFiles;
 import io.substrait.relation.NamedScan;
 import io.substrait.relation.Project;
 import io.substrait.relation.Rel;
@@ -131,6 +132,11 @@ public class SubstraitRelNodeConverter extends AbstractRelVisitor<RelNode, Runti
         .push(right)
         .join(JoinRelType.INNER, relBuilder.literal(true))
         .build();
+  }
+
+  @Override
+  public RelNode visit(LocalFiles localFiles) throws RuntimeException {
+    throw new UnsupportedOperationException("LocalFiles");
   }
 
   @Override

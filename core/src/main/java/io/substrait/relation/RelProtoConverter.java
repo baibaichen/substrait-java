@@ -224,6 +224,18 @@ public class RelProtoConverter implements RelVisitor<Rel, RuntimeException> {
         .build();
   }
 
+  @Override
+  public Rel visit(LocalFiles localFiles) throws RuntimeException {
+    return Rel.newBuilder()
+            .setRead(
+                ReadRel.newBuilder()
+                    .setCommon(common(localFiles))
+                    .setLocalFiles(ReadRel.LocalFiles.newBuilder().build())
+                    .setBaseSchema(localFiles.getInitialSchema().toProto())
+                    .build())
+            .build();
+  }
+
   private RelCommon common(io.substrait.relation.Rel rel) {
     var builder = RelCommon.newBuilder();
     rel.getRemap()
